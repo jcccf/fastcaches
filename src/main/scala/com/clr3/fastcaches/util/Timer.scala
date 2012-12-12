@@ -24,7 +24,8 @@ object Timer {
   def manyTimes[T](name: String)(iterations: Int)(f: => T): Iterable[T] = {
     val trs = (0 until iterations).map { i => t(f) }
     val times = trs.map { i => i._1 }
-    println("%s (x%s) took an average of %sms".format(name, iterations, (times.sum / times.size)/1000000))
+//    println("%s (x%s) took an average of %sms".format(name, iterations, (times.sum / times.size)/1000000))
+    println("%s\t%s\t%s".format(name, iterations, (times.sum / times.size)/1000000))
     trs.map { i => i._2 }
   }
 
